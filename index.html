@@ -1,7 +1,668 @@
-<html>
-  <head><title>Mom Anxiety Help</title></head>
-  <body>
-    <h1>Welcome to Mom Anxiety Help</h1>
-    <p>We're building resources for new moms dealing with anxiety.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mom Anxiety Help - You're Not Alone</title>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #4ACCA8;
+            --primary-blue: #2B5A8C;
+            --bg-cream: #F8FAFB;
+            --text-primary: #2A3A4A;
+            --cta-teal: #4ACCA8;
+            --hover-blue: #3D6BA0;
+            --card-bg: #F2F6F8;
+            --card-hover: #E8F2F5;
+            --accent-gray: #6B7A85;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-blue) 100%);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-cta {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-blue) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="20" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Moving Text Banner */
+        .moving-banner {
+            background: rgba(0,0,0,0.1);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .moving-text {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Pain Points Section */
+        .pain-section {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            color: var(--accent-gray);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pain-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 204, 168, 0.1);
+        }
+
+        .pain-card:hover {
+            background: var(--card-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(74, 204, 168, 0.15);
+        }
+
+        .pain-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-teal), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .pain-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .pain-desc {
+            color: var(--accent-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(45deg, var(--primary-teal), var(--primary-blue));
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(74, 204, 168, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 204, 168, 0.4);
+            background: linear-gradient(45deg, var(--hover-blue), var(--primary-teal));
+        }
+
+        .center-cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(43, 90, 140, 0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(43, 90, 140, 0.1);
+            background: var(--card-hover);
+        }
+
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-teal), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .testimonial-role {
+            color: var(--accent-gray);
+            font-size: 0.9em;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, rgba(74, 204, 168, 0.1) 0%, rgba(43, 90, 140, 0.1) 100%);
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 204, 168, 0.2);
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(74, 204, 168, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--primary-teal);
+        }
+
+        .feature-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .feature-desc {
+            color: var(--accent-gray);
+            line-height: 1.6;
+        }
+
+        .coming-soon {
+            background: linear-gradient(45deg, var(--primary-teal), var(--primary-blue));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Email Signup */
+        .email-section {
+            padding: 80px 0;
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .email-form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto 0;
+            gap: 15px;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid rgba(74, 204, 168, 0.2);
+            border-radius: 50px;
+            font-size: 16px;
+            background: var(--card-bg);
+            transition: all 0.3s ease;
+        }
+
+        .email-form input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(74, 204, 168, 0.1);
+        }
+
+        .email-form button {
+            padding: 15px 30px;
+            background: var(--primary-teal);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-form button:hover {
+            background: var(--hover-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .pain-grid, .testimonials-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">MomAnxietyHelp</div>
+            <button class="nav-cta" 
+                    data-tally-open="n9PDQK" 
+                    data-tally-layout="modal" 
+                    data-tally-width="850" 
+                    data-tally-hide-title="1" 
+                    data-tally-emoji-text="👋" 
+                    data-tally-emoji-animation="wave">
+                Take Quiz
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">You Hold It All Together,<br>But Inside You're Falling Apart</h1>
+                <p class="hero-subtitle">For the moms no one checks on - stepmoms, single moms, new moms with no backup plan. You deserve support that actually gets it.</p>
+                <button class="cta-button" 
+                        data-tally-open="n9PDQK" 
+                        data-tally-layout="modal" 
+                        data-tally-width="850" 
+                        data-tally-hide-title="1" 
+                        data-tally-emoji-text="👋" 
+                        data-tally-emoji-animation="wave">
+                    Take the Quiz - Find Your Support
+                </button>
+            </div>
+        </div>
+        <div class="moving-banner">
+            <div class="moving-text">
+                3AM panic attacks you can't tell anyone about • Perfect mom mask slipping • No safety net when you break • Googling "am I failing my kids" • Rage that scares you • Guilt about everything • Feeling like you're drowning but everyone thinks you're swimming
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-section">
+        <div class="container">
+            <h2 class="section-title">The Invisible Struggles</h2>
+            <p class="section-subtitle">You're not broken. You're carrying an impossible load with no instruction manual and no backup plan.</p>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">😰</div>
+                    <h3 class="pain-title">The Perfect Mom Mask</h3>
+                    <p class="pain-desc">Smiling through school pickup while your chest feels tight. Everyone thinks you have it together, but inside you're screaming.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">🌙</div>
+                    <h3 class="pain-title">3 AM Spiral Sessions</h3>
+                    <p class="pain-desc">Lying awake cataloging every parenting mistake. Googling symptoms and worst-case scenarios until dawn.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">🤯</div>
+                    <h3 class="pain-title">The Invisible Mental Load</h3>
+                    <p class="pain-desc">Tracking everyone's schedules, needs, and emotions while your own needs disappear. Mental exhaustion that no one sees.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">💔</div>
+                    <h3 class="pain-title">No Safety Net</h3>
+                    <p class="pain-desc">When you're the only parent, the step-parent, or the "strong one" - there's no one to catch you when you fall.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">😡</div>
+                    <h3 class="pain-title">Rage That Scares You</h3>
+                    <p class="pain-desc">Anger so intense it feels dangerous. Then shame about feeling angry at all. The cycle that keeps you trapped.</p>
+                </div>
+                
+                <div class="pain-card">
+                    <div class="pain-icon">🔍</div>
+                    <h3 class="pain-title">Google Rabbit Holes</h3>
+                    <p class="pain-desc">2 AM searches for "normal mom anxiety vs concerning." Finding generic advice that doesn't fit your complex reality.</p>
+                </div>
+            </div>
+            
+            <div class="center-cta">
+                <button class="cta-button" 
+                        data-tally-open="n9PDQK" 
+                        data-tally-layout="modal" 
+                        data-tally-width="850" 
+                        data-tally-hide-title="1" 
+                        data-tally-emoji-text="👋" 
+                        data-tally-emoji-animation="wave">
+                    I Need Support That Gets It
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">You're Not Alone</h2>
+            <p class="section-subtitle">Real moms sharing their invisible struggles</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="profile-icon">SM</div>
+                    <p class="testimonial-text">"Managing kids who aren't technically 'mine' while dealing with their bio mom drama. The guilt and anxiety are overwhelming."</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-role">Stepmom of 2</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="profile-icon">JL</div>
+                    <p class="testimonial-text">"There's no backup plan. When I'm sick, stressed, or breaking down - I still have to show up. The pressure is crushing."</p>
+                    <div class="testimonial-author">Jessica L.</div>
+                    <div class="testimonial-role">Single mom</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="profile-icon">MR</div>
+                    <p class="testimonial-text">"Everyone expects me to just know what I'm doing. But I'm drowning and too ashamed to admit I need help."</p>
+                    <div class="testimonial-author">Maria R.</div>
+                    <div class="testimonial-role">New mom</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="profile-icon">KT</div>
+                    <p class="testimonial-text">"Juggling work deadlines and tantrum meltdowns. I feel like I'm failing at everything that matters."</p>
+                    <div class="testimonial-author">Katie T.</div>
+                    <div class="testimonial-role">Working mom of 3</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="profile-icon">AL</div>
+                    <p class="testimonial-text">"The rage episodes scare me. I love my kids but sometimes I feel like I'm losing control completely."</p>
+                    <div class="testimonial-author">Amanda L.</div>
+                    <div class="testimonial-role">Mom of toddler twins</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="profile-icon">DR</div>
+                    <p class="testimonial-text">"Blending families is harder than anyone prepared me for. The anxiety about doing right by everyone is constant."</p>
+                    <div class="testimonial-author">Diana R.</div>
+                    <div class="testimonial-role">Stepmom & bio mom</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Coming Soon -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Real Support Is Coming</h2>
+            <p class="section-subtitle">We're building what you actually need - not another generic parenting app</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Private Safe Space</h3>
+                    <p class="feature-desc">A judgment-free community for moms who can't show weakness. Real peer support plus expert guidance when you need it most.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">🗣️</div>
+                    <h3 class="feature-title">Mentor Mom Matching</h3>
+                    <p class="feature-desc">Connect with experienced moms who've walked your path. Get validation, perspective, and practical advice from someone who truly gets it.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">No More 3AM Google Spirals</h3>
+                    <p class="feature-desc">Organized, action-focused resources you can't find elsewhere. What to do during panic attacks, difficult conversations, crisis moments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Templates That Save Your Sanity</h3>
+                    <p class="feature-desc">Scripts for difficult conversations, daily grounding routines, doctor visit checklists. Save mental energy for what matters.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">🚨</div>
+                    <h3 class="feature-title">Emergency Toolkit</h3>
+                    <p class="feature-desc">Quick access panic attack guides, grounding exercises, and crisis contacts. Support when you need it most, not when it's convenient.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="coming-soon">Coming Soon</div>
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Progress Tracking</h3>
+                    <p class="feature-desc">Simple mood and anxiety tracking with insights. See your patterns and progress without overwhelming complexity.</p>
+                </div>
+            </div>
+            
+            <div class="center-cta">
+                <button class="cta-button" 
+                        data-tally-open="n9PDQK" 
+                        data-tally-layout="modal" 
+                        data-tally-width="850" 
+                        data-tally-hide-title="1" 
+                        data-tally-emoji-text="👋" 
+                        data-tally-emoji-animation="wave">
+                    Take Quiz - Get Early Access
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup -->
+    <section class="email-section">
+        <div class="container">
+            <h2 class="section-title">Get Notified When We Launch</h2>
+            <p class="section-subtitle">Be the first to know when real support for invisible mom anxiety is ready</p>
+            
+            <form class="email-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MomAnxietyHelp.com - Support for the moms no one checks on</p>
+        </div>
+    </footer>
+
+    <script>
+        // Email form submission
+        document.querySelector('.email-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Thank you! We\'ll notify you when we launch.');
+            this.querySelector('input[type="email"]').value = '';
+        });
+    </script>
+</body>
 </html>
